@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fab from '@material-ui/core/Fab';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import plus from '../assets/plus.svg';
 
-function AddButton() {
+function AddButton(props) {
 	function onButtonClick(e) {
 		e.stopPropagation();
 		document.getElementById('addBooks').click();
@@ -11,9 +13,11 @@ function AddButton() {
 
 	function handleBooks() {
 		let books = document.getElementById('addBooks').files;
+		let arr = [];
 		for (let i = 0; i < books.length; i++) {
-			console.log(books[i]);
+			arr.push(books[i]);
 		}
+		props.addBooks(arr);
 	}
 
 	return (
@@ -30,7 +34,7 @@ function AddButton() {
 	);
 }
 
-export default AddButton;
+export default connect(null, actions)(AddButton);
 
 const Icon = styled.img`
 	height: 30%;

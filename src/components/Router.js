@@ -4,8 +4,7 @@ import Home from '../pages/Home';
 import Reader from '../pages/Reader';
 
 function Router(props) {
-	// props.currentPage
-	switch ('home') {
+	switch (props.currentPage) {
 		case 'home':
 			return <Home />;
 		case 'reader':
@@ -16,9 +15,7 @@ function Router(props) {
 }
 
 function mapStateToProps(state) {
-	return { currentPage: state.routes.page };
+	return { currentPage: state.routes };
 }
 
-export default Router;
-
-// export default connect(mapStateToProps, null)(Router);
+export default connect(mapStateToProps, null)(Router);
