@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import Router from './components/Router';
+
+const palette = {
+	light: {
+		main: '#fff',
+		background: '#03a9f4',
+		foreground: '#000000'
+	},
+	dark: {
+		main: '#121212',
+		background: '#03a9f4',
+		foreground: '#fff'
+	}
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<ThemeProvider theme={palette['light']}>
+			<Router />
+		</ThemeProvider>
+	);
 }
 
 export default App;
