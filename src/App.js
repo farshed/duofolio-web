@@ -6,14 +6,14 @@ import Router from './components/Router';
 
 const palette = {
 	light: {
-		main: '#fff',
-		background: '#03a9f4',
-		foreground: '#000000'
+		accent: '#fafafa',
+		foreground: '#0f2439',
+		background: '#fafafa'
 	},
 	dark: {
-		main: '#121212',
-		background: '#03a9f4',
-		foreground: '#fff'
+		accent: '#0f2439',
+		foreground: '#fafafa',
+		background: '#33363c'
 	}
 };
 
