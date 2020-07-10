@@ -45,7 +45,7 @@ const Button = styled(Fab)`
 	position: absolute !important;
 	bottom: 1em !important;
 	right: 1em !important;
-	background-color: #03a9f4 !important;
+	background-color: #275efe !important;
 `;
 
 const Input = styled.input`
