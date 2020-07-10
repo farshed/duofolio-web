@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import BookItem from '../components/BookItem';
 import AddButton from '../components/AddButton';
 
 function Home(props) {
-	console.log(props.books);
 	return (
 		<Wrapper>
-			<h1>Home</h1>
+			{props.books.map((book, i) => (
+				<BookItem book={book} key={i} />
+			))}
 			<AddButton />
 		</Wrapper>
 	);

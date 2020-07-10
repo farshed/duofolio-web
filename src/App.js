@@ -1,8 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './store';
+import store from './store';
 import Router from './components/Router';
 
 const palette = {
@@ -21,11 +20,9 @@ const palette = {
 function App() {
 	return (
 		<Provider store={store}>
-			<PersistGate persistor={persistor}>
-				<ThemeProvider theme={palette['light']}>
-					<Router />
-				</ThemeProvider>
-			</PersistGate>
+			<ThemeProvider theme={palette['light']}>
+				<Router />
+			</ThemeProvider>
 		</Provider>
 	);
 }
