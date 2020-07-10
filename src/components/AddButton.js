@@ -12,24 +12,17 @@ function AddButton(props) {
 	}
 
 	function handleBooks() {
-		let books = document.getElementById('addBooks').files;
-		let arr = [];
-		for (let i = 0; i < books.length; i++) {
-			arr.push(books[i]);
+		let book = document.getElementById('addBooks').files;
+		if (book[0]) {
+			props.selectBook(book[0]);
+			props.goToPage('reader');
 		}
-		props.addBooks(arr);
 	}
 
 	return (
 		<Button onClick={onButtonClick}>
 			<Icon src={plus} alt="" />
-			<Input
-				id="addBooks"
-				type="file"
-				accept="application/epub+zip"
-				multiple
-				onChange={handleBooks}
-			/>
+			<Input id="addBooks" type="file" accept="application/epub+zip" onChange={handleBooks} />
 		</Button>
 	);
 }

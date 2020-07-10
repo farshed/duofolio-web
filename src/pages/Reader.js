@@ -47,7 +47,7 @@ function Reader(props) {
 }
 
 function mapStateToProps(state) {
-	return { currentBook: state.shelf.currentBook };
+	return { currentBook: state.book };
 }
 
 export default connect(mapStateToProps, null)(Reader);

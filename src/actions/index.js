@@ -1,2 +1,2 @@
 export * from './routes';
-export * from './books';
+export * from './book';
