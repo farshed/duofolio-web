@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
-import close from '../assets/close.svg';
+import CloseButton from '../components/CloseButton';
+import NextButton from '../components/NextButton';
+import PrevButton from '../components/PrevButton';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
 
-	useEffect(() => {
-		readFile();
-		document.addEventListener('keydown', keyHandler);
-		return () => document.removeEventListener('keydown', keyHandler);
-	}, []);
+	useEffect(readFile, []);
 
 	function readFile() {
 		const file = new FileReader();
@@ -29,26 +26,22 @@ function Reader(props) {
 		setRendition(rend);
 	}
 
-	function keyHandler(e) {
-		console.log(rendition);
-		if (rendition !== null) {
-			if (e.key === 'ArrowRight') {
-				console.log('helsnd');
-				rendition.next();
-			} else if (e.key === 'ArrowLeft') {
-				rendition.prev();
-			}
-		}
-	}
-
-	function goBack(e) {
-		e.preventDefault();
-		props.goToPage('home');
-	}
+	// function keyHandler(e) {
+	// 	console.log(rendition, e);
+	// 	if (rendition !== null) {
+	// 		if (e.key === 'ArrowRight') {
+	// 			rendition.next();
+	// 		} else if (e.key === 'ArrowLeft') {
+	// 			rendition.prev();
+	// 		}
+	// 	}
+	// }
 
 	return (
 		<Wrapper id="reader">
-			<CloseIcon src={close} alt="" onClick={goBack} />
+			<CloseButton />
+			<NextButton rendition={rendition} />
+			<PrevButton rendition={rendition} />
 		</Wrapper>
 	);
 }
@@ -57,21 +50,11 @@ function mapStateToProps(state) {
 	return { currentBook: state.shelf.currentBook };
 }
 
-export default connect(mapStateToProps, actions)(Reader);
+export default connect(mapStateToProps, null)(Reader);
 
 const Wrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	display: flex;
 	margin: 0px;
-`;
-
-const CloseIcon = styled.img`
-	height: 0.95em;
-	width: 0.95em;
-	position: absolute;
-	top: 0.8em;
-	right: 0.8em;
-	cursor: pointer;
-	z-index: 10;
 `;
