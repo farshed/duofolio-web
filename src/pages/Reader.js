@@ -1,16 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import Epub from 'epubjs/lib/index';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import close from '../assets/close.svg';
 
-function Reader() {
+function Reader(props) {
+	useEffect(readFile, []);
+
+	function readFile() {
+		const file = new FileReader();
+		file.onload = function () {
+			displayBook(file.result);
+		};
+		file.readAsArrayBuffer(props.currentBook);
+	}
+
+	function displayBook(bookData) {
+		let book = Epub(bookData, { encoding: 'binary' });
+		let rendition = book.renderTo(document.getElementById('reader'), {});
+		let displayed = rendition.display();
+	}
+
+	function close(e) {
+		e.stopPropagation();
+		props.goToPage('home');
+	}
+
 	return (
-		<Wrapper>
-			<CloseIcon src={close} alt="" />
+		<Wrapper id="reader">
+			<CloseIcon src={close} alt="" onClick={close} />
 		</Wrapper>
 	);
 }
 
-export default Reader;
+function mapStateToProps(state) {
+	return { currentBook: state.shelf.currentBook };
+}
+
+export default connect(mapStateToProps, actions)(Reader);
 
 const Wrapper = styled.div`
 	height: 100vh;
