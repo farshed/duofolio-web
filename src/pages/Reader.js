@@ -22,20 +22,21 @@ function Reader(props) {
 	function displayBook(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
+		rend.on('selected', () => {
+			if (window.document.getSelection) {
+				console.log(window.document.getSelection().toString().length);
+			}
+		});
 		rend.display();
+		rend.on('keydown', (e) => {
+			if (e.key === 'ArrowRight') {
+				rend.next();
+			} else if (e.key === 'ArrowLeft') {
+				rend.prev();
+			}
+		});
 		setRendition(rend);
 	}
-
-	// function keyHandler(e) {
-	// 	console.log(rendition, e);
-	// 	if (rendition !== null) {
-	// 		if (e.key === 'ArrowRight') {
-	// 			rendition.next();
-	// 		} else if (e.key === 'ArrowLeft') {
-	// 			rendition.prev();
-	// 		}
-	// 	}
-	// }
 
 	return (
 		<Wrapper id="reader">

@@ -22,8 +22,9 @@ export default connect(null, actions)(ThemeToggle);
 
 const Wrapper = styled.div`
 	position: absolute;
-	top: 1.5em;
-	right: 1.5em;
+	top: 1.75em;
+	right: 1.75em;
+	cursor: pointer;
 `;
 
 const Sun = styled.div`
