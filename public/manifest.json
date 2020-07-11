@@ -1,5 +1,5 @@
 {
-	"short_name": "Readlingo",
+	"short_name": "Linguify",
 	"name": "Create React App Sample",
 	"icons": [
 		{
@@ -10,6 +10,6 @@
 	],
 	"start_url": ".",
 	"display": "standalone",
-	"theme_color": "#275efe",
-	"background_color": "#ffffff"
+	"theme_color": "#0f2439",
+	"background_color": "#fafafa"
 }

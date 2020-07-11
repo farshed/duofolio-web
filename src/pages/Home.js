@@ -1,28 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import AddButton from '../components/AddButton';
 
-function Home() {
+function Home(props) {
 	return (
 		<Wrapper>
-			<Monogram>linguify</Monogram>
+			<Monogram
+				onClick={() => {
+					props.changeTheme();
+				}}>
+				linguify
+			</Monogram>
+			<a
+				href="https://www.github.com/farshed/linguify"
+				target="_blank"
+				rel="noopener noreferrer">
+				<Link>Github</Link>
+			</a>
+			<Description>Read books in other languages</Description>
 			<AddButton />
 		</Wrapper>
 	);
 }
 
-export default Home;
+export default connect(null, actions)(Home);
 
 const Wrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	margin: 0px;
 	background-color: ${(props) => props.theme.background};
-	padding-top: 5%;
 `;
 
 const Monogram = styled.p`
@@ -30,4 +43,25 @@ const Monogram = styled.p`
 	font-family: Pacifico;
 	color: ${(props) => props.theme.foreground};
 	user-select: none;
+	position: absolute;
+	top: 0px;
+	left: 0.5em;
+`;
+
+const Description = styled.p`
+	font-size: 1.35em;
+	font-family: Poppins;
+	color: ${(props) => props.theme.foreground};
+	padding-bottom: 2.5em;
+`;
+
+const Link = styled.p`
+	font-size: 1em;
+	font-family: Poppins;
+	color: ${(props) => props.theme.foreground};
+	user-select: none;
+	position: absolute;
+	bottom: 1em;
+	right: 1.5em;
+	cursor: pointer;
 `;
