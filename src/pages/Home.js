@@ -1,18 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import ThemeToggle from '../components/ThemeToggle';
 import AddButton from '../components/AddButton';
 
-function Home(props) {
+function Home() {
 	return (
 		<Wrapper>
-			<Monogram
-				onClick={() => {
-					props.changeTheme();
-				}}>
-				linguify
-			</Monogram>
+			<Monogram>linguify</Monogram>
+			<ThemeToggle />
 			<a
 				href="https://www.github.com/farshed/linguify"
 				target="_blank"
@@ -25,7 +20,7 @@ function Home(props) {
 	);
 }
 
-export default connect(null, actions)(Home);
+export default Home;
 
 const Wrapper = styled.div`
 	height: 100vh;
