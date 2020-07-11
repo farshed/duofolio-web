@@ -14,7 +14,7 @@ function Home() {
 				rel="noopener noreferrer">
 				<Link>Github</Link>
 			</a>
-			<Description>Read books in other languages</Description>
+			<Description>Linguify helps you read books in other languages</Description>
 			<AddButton />
 		</Wrapper>
 	);

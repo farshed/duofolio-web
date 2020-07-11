@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import CloseButton from '../components/CloseButton';
 import NextButton from '../components/NextButton';
 import PrevButton from '../components/PrevButton';
+import { darkTheme } from '../constants';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
@@ -23,6 +24,9 @@ function Reader(props) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
 		rend.display();
+		if (props.theme === 'dark') {
+			rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
+		}
 
 		document.body.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
@@ -51,7 +55,10 @@ function Reader(props) {
 }
 
 function mapStateToProps(state) {
-	return { currentBook: state.book };
+	return {
+		currentBook: state.book,
+		theme: state.settings.theme
+	};
 }
 
 export default connect(mapStateToProps, null)(Reader);

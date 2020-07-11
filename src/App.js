@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store, persistor } from './src/store';
+import { store, persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import Root from './Root';
 
