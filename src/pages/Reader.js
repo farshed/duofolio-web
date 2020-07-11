@@ -37,7 +37,6 @@ function Reader(props) {
 				rend.manager && rend.manager.getContents().length > 0
 					? rend.manager.getContents()[0].window.getSelection().toString().trim()
 					: '';
-			console.log(selection);
 		});
 		setRendition(rend);
 	}
