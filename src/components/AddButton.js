@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	background-color: ${(props) => props.theme.foreground};
 	border-radius: 0.35em;
-	box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 `;
 
