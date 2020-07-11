@@ -5,11 +5,13 @@ import Router from './components/Router';
 
 const palette = {
 	light: {
+		name: 'light',
 		accent: '#fafafa',
 		foreground: '#0f2439',
 		background: '#fafafa'
 	},
 	dark: {
+		name: 'dark',
 		accent: '#0f2439',
 		foreground: '#fafafa',
 		background: '#34323D'
