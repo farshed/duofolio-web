@@ -8,10 +8,14 @@ export const darkTheme = {
 		// "text-align": `${theme.ta} !important`,
 		// "padding-top": theme.m,
 		// "padding-bottom": theme.m
+	},
+	p: {
+		color: '#ffffff !important'
+	},
+	h1: {
+		color: '#ffffff'
 	}
-	// p: {
-	// 	color: '#ffffff !important'
-	// }
+
 	// a: {
 	// color: 'inherit !important',
 	// "text-decoration": "none !important",

@@ -14,7 +14,7 @@ const palette = {
 		name: 'dark',
 		accent: '#0f2439',
 		foreground: '#fafafa',
-		background: '#34323D'
+		background: '#0f2439'
 	}
 };
 

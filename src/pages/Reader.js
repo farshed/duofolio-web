@@ -58,7 +58,8 @@ function Reader(props) {
 function mapStateToProps(state) {
 	return {
 		currentBook: state.book,
-		theme: state.settings.theme
+		theme: state.settings.theme,
+		location: state.location
 	};
 }
 
