@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
-import { ReactComponent as Prev } from '../assets/prev.svg';
+import prev from '../assets/prev.svg';
 
 function PrevButton(props) {
 	const theme = useTheme();
@@ -10,19 +10,12 @@ function PrevButton(props) {
 		props.rendition.prev();
 	}
 
-	return (
-		<PrevIcon
-			onClick={goPrev}
-			fill={theme.foreground}
-			stroke={theme.foreground}
-			strokeWidth={18}
-		/>
-	);
+	return <PrevIcon onClick={goPrev} src={prev} alt="" />;
 }
 
 export default PrevButton;
 
-const PrevIcon = styled(Prev)`
+const PrevIcon = styled.img`
 	height: 1em;
 	width: 1em;
 	padding: 0.2em;

@@ -24,10 +24,10 @@ function Reader(props) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
 		rend.display();
-		if (props.theme === 'dark') {
-			// rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
-			rend.themes.register('dark', darkTheme);
-		}
+		// if (props.theme === 'dark') {
+		// 	rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
+		// 	rend.themes.register('dark', darkTheme);
+		// }
 
 		document.body.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
@@ -70,5 +70,9 @@ const Wrapper = styled.div`
 	width: 100vw;
 	display: flex;
 	margin: 0px;
-	background-color: ${(props) => props.theme.background};
+ 	/* background-color: ${(props) => props.theme.background}; */
+	/* color: red;
+	p {
+		color: ${(props) => props.theme.foreground} !important;
+	} */
 `;

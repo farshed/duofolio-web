@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
-import { ReactComponent as Next } from '../assets/next.svg';
+import next from '../assets/next.svg';
 
 function NextButton(props) {
 	const theme = useTheme();
@@ -10,19 +10,12 @@ function NextButton(props) {
 		props.rendition.next();
 	}
 
-	return (
-		<NextIcon
-			onClick={goNext}
-			fill={theme.foreground}
-			stroke={theme.foreground}
-			strokeWidth={18}
-		/>
-	);
+	return <NextIcon onClick={goNext} src={next} alt="" />;
 }
 
 export default NextButton;
 
-const NextIcon = styled(Next)`
+const NextIcon = styled.img`
 	height: 1em;
 	width: 1em;
 	padding: 0.2em;
