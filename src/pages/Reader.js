@@ -25,7 +25,8 @@ function Reader(props) {
 		let rend = book.renderTo(document.getElementById('reader'), {});
 		rend.display();
 		if (props.theme === 'dark') {
-			rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
+			// rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
+			rend.themes.register('dark', darkTheme);
 		}
 
 		document.body.addEventListener('keydown', (e) => {
@@ -68,4 +69,5 @@ const Wrapper = styled.div`
 	width: 100vw;
 	display: flex;
 	margin: 0px;
+	background-color: ${(props) => props.theme.background};
 `;
