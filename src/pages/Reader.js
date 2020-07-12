@@ -25,9 +25,12 @@ function Reader(props) {
 		let rend = book.renderTo(document.getElementById('reader'), {});
 		rend.display();
 		// if (props.theme === 'dark') {
-		// 	rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
+		// rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
 		// 	rend.themes.register('dark', darkTheme);
 		// }
+
+		// contents
+		// book.loaded.navigation.then(console.log);
 
 		document.body.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
