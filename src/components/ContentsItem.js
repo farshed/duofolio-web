@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function ContentsItem(props) {
-	function onClick(e) {
-		e.stopPropagation();
+	function onClick() {
 		props.rendition.display(props.href);
 	}
 
@@ -17,7 +16,7 @@ function ContentsItem(props) {
 export default ContentsItem;
 
 const Wrapper = styled.div`
-	height: 1em;
+	height: 1.2em;
 	width: 100%;
 	display: flex;
 	justify-content: flex-start;

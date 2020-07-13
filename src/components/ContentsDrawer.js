@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 import ContentsItem from '../components/ContentsItem';
 
 const ContentsDrawer = (props) => {
 	Modal.setAppElement('#modal');
-
-	// useEffect(() => {
-	// 	// if (isVisible) {
-	// 	// document.getElementById('root').style.filter = 'blur(10px)';
-	// 	// } else document.getElementById('root').style.filter = 'blur(0px)';
-	// }, [props.isVisible]);
 
 	return (
 		<div onClick={(e) => e.stopPropagation()}>
@@ -57,7 +51,7 @@ export default styled(ContentsDrawer).attrs({
 		justify-content: space-evenly;
 		align-items: flex-start;
 		z-index: 12;
-		padding-top: 3em;
+		padding-top: 7em;
 		white-space: nowrap;
 		overflow: auto;
 		&:focus {
