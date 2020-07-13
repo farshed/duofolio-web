@@ -16,13 +16,13 @@ function NextButton(props) {
 export default NextButton;
 
 const NextIcon = styled.img`
-	height: 1em;
-	width: 1em;
+	height: 0.9em;
+	width: 0.9em;
 	padding: 0.2em;
 	border-radius: 1em;
 	position: absolute;
-	bottom: 1em;
-	right: 0.8em;
+	bottom: 0.75em;
+	right: 0.75em;
 	cursor: pointer;
 	z-index: 10;
 `;

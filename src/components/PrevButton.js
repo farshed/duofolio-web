@@ -16,13 +16,13 @@ function PrevButton(props) {
 export default PrevButton;
 
 const PrevIcon = styled.img`
-	height: 1em;
-	width: 1em;
+	height: 0.9em;
+	width: 0.9em;
 	padding: 0.2em;
 	border-radius: 1em;
 	position: absolute;
-	bottom: 1em;
-	left: 0.8em;
+	bottom: 0.75em;
+	left: 0.75em;
 	cursor: pointer;
 	z-index: 10;
 `;

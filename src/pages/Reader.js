@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
+import ContentsDrawer from '../components/ContentsDrawer';
+import ContentsButton from '../components/ContentsButton';
 import CloseButton from '../components/CloseButton';
 import NextButton from '../components/NextButton';
 import PrevButton from '../components/PrevButton';
@@ -9,6 +11,7 @@ import { darkTheme } from '../constants';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
+	const [isContentDrawer, setContentDrawer] = useState(false);
 
 	useEffect(readFile, []);
 
@@ -51,6 +54,8 @@ function Reader(props) {
 
 	return (
 		<Wrapper id="reader">
+			<ContentsButton isVisible={isContentDrawer} setVisible={setContentDrawer} />
+			<ContentsDrawer isVisible={isContentDrawer} setVisible={setContentDrawer} />
 			<CloseButton />
 			<NextButton rendition={rendition} />
 			<PrevButton rendition={rendition} />
