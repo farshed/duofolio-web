@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
+import ContentsItem from '../components/ContentsItem';
 
 const ContentsDrawer = (props) => {
 	Modal.setAppElement('#modal');
 
-	useEffect(() => {
-		// if (isVisible) {
-		// document.getElementById('root').style.filter = 'blur(10px)';
-		// } else document.getElementById('root').style.filter = 'blur(0px)';
-	}, [props.isVisible]);
+	// useEffect(() => {
+	// 	// if (isVisible) {
+	// 	// document.getElementById('root').style.filter = 'blur(10px)';
+	// 	// } else document.getElementById('root').style.filter = 'blur(0px)';
+	// }, [props.isVisible]);
 
 	return (
 		<div onClick={(e) => e.stopPropagation()}>
@@ -22,7 +23,12 @@ const ContentsDrawer = (props) => {
 				onRequestClose={(e) => {
 					e.stopPropagation();
 					props.setVisible(false);
-				}}></Modal>
+				}}>
+				{props.contents &&
+					props.contents.map((item, i) => (
+						<ContentsItem {...item} rendition={props.rendition} key={i} />
+					))}
+			</Modal>
 		</div>
 	);
 };
@@ -50,6 +56,10 @@ export default styled(ContentsDrawer).attrs({
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: flex-start;
+		z-index: 12;
+		padding-top: 3em;
+		white-space: nowrap;
+		overflow: auto;
 		&:focus {
 			outline: none;
 		}

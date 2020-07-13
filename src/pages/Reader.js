@@ -12,6 +12,7 @@ import { darkTheme } from '../constants';
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
 	const [isContentDrawer, setContentDrawer] = useState(false);
+	const [contents, setContents] = useState(null);
 
 	useEffect(readFile, []);
 
@@ -32,8 +33,12 @@ function Reader(props) {
 		// 	rend.themes.register('dark', darkTheme);
 		// }
 
-		// contents
-		// book.loaded.navigation.then(console.log);
+		book.loaded.navigation.then((nav) => {
+			let c = nav.toc.map(({ href, label }) => {
+				return { href, label };
+			});
+			setContents(c);
+		});
 
 		document.body.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
@@ -55,7 +60,12 @@ function Reader(props) {
 	return (
 		<Wrapper id="reader">
 			<ContentsButton isVisible={isContentDrawer} setVisible={setContentDrawer} />
-			<ContentsDrawer isVisible={isContentDrawer} setVisible={setContentDrawer} />
+			<ContentsDrawer
+				isVisible={isContentDrawer}
+				setVisible={setContentDrawer}
+				contents={contents}
+				rendition={rendition}
+			/>
 			<CloseButton />
 			<NextButton rendition={rendition} />
 			<PrevButton rendition={rendition} />

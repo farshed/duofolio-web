@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-function AddButton(props) {
+function OpenButton(props) {
 	function onButtonClick(e) {
 		e.stopPropagation();
 		document.getElementById('addBooks').click();
@@ -25,7 +25,7 @@ function AddButton(props) {
 	);
 }
 
-export default connect(null, actions)(AddButton);
+export default connect(null, actions)(OpenButton);
 
 const Wrapper = styled.div`
 	height: 2.7em;

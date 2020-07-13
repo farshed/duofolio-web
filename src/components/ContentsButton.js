@@ -11,7 +11,6 @@ function ContentsButton(props) {
 		props.setVisible(!props.isVisible);
 	}
 
-	console.log(theme.name);
 	return (
 		<ContentsIcon
 			src={theme.name === 'dark' ? contentsLight : contentsDark}

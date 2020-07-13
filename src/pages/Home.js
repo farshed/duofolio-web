@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ThemeToggle from '../components/ThemeToggle';
-import AddButton from '../components/AddButton';
+import OpenButton from '../components/OpenButton';
 
 function Home() {
 	return (
@@ -15,7 +15,7 @@ function Home() {
 				<Link>Github</Link>
 			</a>
 			<Description>Linguify helps you read books in other languages</Description>
-			<AddButton />
+			<OpenButton />
 		</Wrapper>
 	);
 }
