@@ -53,7 +53,9 @@ export default styled(ContentsDrawer).attrs({
 		z-index: 12;
 		padding-top: 7em;
 		white-space: nowrap;
-		overflow: auto;
+		overflow-y: auto;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
 		&:focus {
 			outline: none;
 		}
