@@ -28,10 +28,9 @@ function Reader(props) {
 	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
-
 		// if (props.theme === 'dark') {
-		// rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
-		// 	rend.themes.register('dark', darkTheme);
+		// rend.themes.default(darkTheme);
+		// rend.theme.select('dark');
 		// }
 
 		rend.on('started', () => {
