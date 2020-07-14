@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 import ContentsDrawer from '../components/ContentsDrawer';
 import ContentsButton from '../components/ContentsButton';
 import CloseButton from '../components/CloseButton';
@@ -19,19 +20,23 @@ function Reader(props) {
 	function readFile() {
 		const file = new FileReader();
 		file.onload = function () {
-			displayBook(file.result);
+			bookInit(file.result);
 		};
 		file.readAsArrayBuffer(props.currentBook);
 	}
 
-	function displayBook(bookData) {
+	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
-		rend.display();
+
 		// if (props.theme === 'dark') {
 		// rend.getContents().forEach((item) => item.addStylesheetRules(darkTheme));
 		// 	rend.themes.register('dark', darkTheme);
 		// }
+
+		rend.on('started', () => {
+			rend.display(props.locations[book.key()]);
+		});
 
 		book.loaded.navigation.then((nav) => {
 			let c = nav.toc.map(({ href, label }) => {
@@ -42,10 +47,15 @@ function Reader(props) {
 
 		document.body.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
+				// console.log(rend.location);
 				rend.next();
 			} else if (e.key === 'ArrowLeft') {
 				rend.prev();
 			}
+		});
+
+		rend.on('relocated', (e) => {
+			props.addLocation({ key: book.key(), cfi: e.start.cfi });
 		});
 
 		rend.on('selected', () => {
@@ -54,6 +64,7 @@ function Reader(props) {
 					? rend.manager.getContents()[0].window.getSelection().toString().trim()
 					: '';
 		});
+
 		setRendition(rend);
 	}
 
@@ -77,11 +88,11 @@ function mapStateToProps(state) {
 	return {
 		currentBook: state.book,
 		theme: state.settings.theme,
-		location: state.location
+		locations: state.location
 	};
 }
 
-export default connect(mapStateToProps, null)(Reader);
+export default connect(mapStateToProps, actions)(Reader);
 
 const Wrapper = styled.div`
 	height: 100vh;
