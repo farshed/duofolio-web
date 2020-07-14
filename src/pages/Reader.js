@@ -8,7 +8,7 @@ import ContentsButton from '../components/ContentsButton';
 import CloseButton from '../components/CloseButton';
 import NextButton from '../components/NextButton';
 import PrevButton from '../components/PrevButton';
-import { darkTheme } from '../constants';
+import { darkTheme } from '../constants/theme';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
@@ -29,8 +29,8 @@ function Reader(props) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
 		// if (props.theme === 'dark') {
-		// rend.themes.default(darkTheme);
-		// rend.theme.select('dark');
+		// 	rend.themes.register({ dark: darkTheme });
+		// 	rend.themes.select('dark');
 		// }
 
 		rend.on('started', () => {
@@ -98,9 +98,5 @@ const Wrapper = styled.div`
 	width: 100vw;
 	display: flex;
 	margin: 0px;
- 	/* background-color: ${(props) => props.theme.background}; */
-	/* color: red;
-	p {
-		color: ${(props) => props.theme.foreground} !important;
-	} */
+	background-color: ${(props) => props.theme.background};
 `;
