@@ -1,9 +1,14 @@
-const InitialState = { theme: 'light' };
+const InitialState = {
+	bg: '#fafafa',
+	fg: '#000000',
+	font: 'Default',
+	size: '100%'
+};
 
 export default function (state = InitialState, action) {
 	switch (action.type) {
-		case 'change_theme':
-			return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
+		case 'modify_settings':
+			return { ...state, ...action.payload };
 		default:
 			return state;
 	}

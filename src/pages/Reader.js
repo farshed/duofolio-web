@@ -16,6 +16,12 @@ function Reader(props) {
 	const [contents, setContents] = useState(null);
 
 	useEffect(readFile, []);
+	// useEffect(() => {
+	// 	if (rendition) {
+	// 		rendition.themes.register({ theme: darkTheme });
+	// 		rendition.themes.select('theme');
+	// 	}
+	// }, [props.settings]);
 
 	function readFile() {
 		const file = new FileReader();
@@ -28,10 +34,10 @@ function Reader(props) {
 	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
-		// if (props.theme === 'dark') {
-		// 	rend.themes.register({ dark: darkTheme });
-		// 	rend.themes.select('dark');
-		// }
+		//
+		// 	rend.themes.register({ theme: darkTheme });
+		// 	rend.themes.select('theme');
+		//
 
 		rend.on('started', () => {
 			rend.display(props.locations[book.key()]);
@@ -86,7 +92,7 @@ function Reader(props) {
 function mapStateToProps(state) {
 	return {
 		currentBook: state.book,
-		theme: state.settings.theme,
+		settings: state.settings,
 		locations: state.location
 	};
 }
