@@ -45,7 +45,9 @@ const Description = styled.p`
 	font-size: 1.35em;
 	font-family: Poppins;
 	color: #0f2439;
+	padding: 1em;
 	padding-bottom: 2.5em;
+	text-align: center;
 `;
 
 const Link = styled.p`

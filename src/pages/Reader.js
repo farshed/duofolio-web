@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import ContentsDrawer from '../components/ContentsDrawer';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import ContentsButton from '../components/buttons/ContentsButton';
 import BackButton from '../components/buttons/BackButton';
 import NextButton from '../components/buttons/NextButton';
@@ -85,8 +86,9 @@ function Reader(props) {
 				contents={contents}
 				rendition={rendition}
 			/>
-			<NextButton rendition={rendition} />
-			<PrevButton rendition={rendition} />
+			{/* <NextButton rendition={rendition} />
+			<PrevButton rendition={rendition} /> */}
+			{/* <Footer rendition={rendition} /> */}
 		</Wrapper>
 	);
 }
