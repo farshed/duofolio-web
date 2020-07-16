@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import ThemeToggle from '../components/ThemeToggle';
-import OpenButton from '../components/OpenButton';
+import OpenButton from '../components/buttons/OpenButton';
 
 function Home() {
 	return (
 		<Wrapper>
 			<Monogram>linguify</Monogram>
-			<ThemeToggle />
 			<a
 				href="https://www.github.com/farshed/linguify"
 				target="_blank"
@@ -30,13 +28,13 @@ const Wrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 0px;
-	background-color: ${(props) => props.theme.background};
+	background-color: #fafafa;
 `;
 
 const Monogram = styled.p`
 	font-size: 3.5em;
 	font-family: Pacifico;
-	color: ${(props) => props.theme.foreground};
+	color: #0f2439;
 	user-select: none;
 	position: absolute;
 	top: 0px;
@@ -46,14 +44,14 @@ const Monogram = styled.p`
 const Description = styled.p`
 	font-size: 1.35em;
 	font-family: Poppins;
-	color: ${(props) => props.theme.foreground};
+	color: #0f2439;
 	padding-bottom: 2.5em;
 `;
 
 const Link = styled.p`
 	font-size: 1em;
 	font-family: Poppins;
-	color: ${(props) => props.theme.foreground};
+	color: #0f2439;
 	user-select: none;
 	position: absolute;
 	bottom: 1em;

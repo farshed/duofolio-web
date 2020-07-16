@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 function OpenButton(props) {
 	function onButtonClick(e) {
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	background-color: ${(props) => props.theme.foreground};
+	background-color: #0f2439;
 	border-radius: 0.35em;
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 const Label = styled.p`
 	font-size: 1em;
 	font-family: Roboto;
-	color: ${(props) => props.theme.accent};
+	color: #fafafa;
 	user-select: none;
 `;
 

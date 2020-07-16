@@ -44,8 +44,8 @@ export default styled(ContentsDrawer).attrs({
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
-		left: 0px;
-		background-color: ${(props) => props.theme.background};
+		right: 0px;
+		background-color: #fafafa;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;

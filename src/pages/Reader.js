@@ -4,11 +4,12 @@ import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import ContentsDrawer from '../components/ContentsDrawer';
-import ContentsButton from '../components/ContentsButton';
-import CloseButton from '../components/CloseButton';
-import NextButton from '../components/NextButton';
-import PrevButton from '../components/PrevButton';
-import { darkTheme } from '../constants/theme';
+import Header from '../components/Header';
+import ContentsButton from '../components/buttons/ContentsButton';
+import BackButton from '../components/buttons/BackButton';
+import NextButton from '../components/buttons/NextButton';
+import PrevButton from '../components/buttons/PrevButton';
+import { darkTheme } from '../constants';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
@@ -82,7 +83,7 @@ function Reader(props) {
 				contents={contents}
 				rendition={rendition}
 			/>
-			<CloseButton />
+			<BackButton />
 			<NextButton rendition={rendition} />
 			<PrevButton rendition={rendition} />
 		</Wrapper>

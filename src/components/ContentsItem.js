@@ -24,12 +24,12 @@ const Wrapper = styled.div`
 	padding: 0.5em;
 	cursor: pointer;
 	&:hover {
-		background-color: ${(props) => '33' + props.theme.foreground};
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 `;
 
 const Text = styled.p`
 	font-size: 1em;
 	font-family: Roboto;
-	color: ${(props) => props.theme.foreground};
+	color: #000000;
 `;
