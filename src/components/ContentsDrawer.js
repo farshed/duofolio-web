@@ -41,6 +41,7 @@ export default styled(ContentsDrawer).attrs({
 	}
 	.Modal {
 		width: 25%;
+		min-width: 20em;
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
@@ -48,10 +49,9 @@ export default styled(ContentsDrawer).attrs({
 		background-color: #fafafa;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-evenly;
 		align-items: flex-start;
 		z-index: 12;
-		padding-top: 7em;
+		padding-top: 3em;
 		white-space: nowrap;
 		overflow-y: auto;
 		overflow-x: hidden;

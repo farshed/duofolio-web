@@ -9,7 +9,7 @@ function Header(props) {
 	return (
 		<Wrapper bg={props.bg}>
 			<BackButton />
-			{/* <SettingsButton /> */}
+			<SettingsButton />
 			<ContentsButton isVisible={props.isVisible} setVisible={props.setVisible} />
 		</Wrapper>
 	);

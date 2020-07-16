@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.p`
-	font-size: 1em;
+	font-size: 0.9em;
 	font-family: Roboto;
 	color: #000000;
 `;

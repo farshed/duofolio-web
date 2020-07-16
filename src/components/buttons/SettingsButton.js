@@ -7,7 +7,7 @@ import { ReactComponent as Gear } from '../../assets/gear.svg';
 function SettingsButton(props) {
 	function openSettings(e) {
 		e.preventDefault();
-		props.goToPage('home');
+		// props.goToPage('home');
 	}
 
 	return <GearIcon onClick={openSettings} fill={props.foreground} />;
