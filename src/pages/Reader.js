@@ -4,12 +4,12 @@ import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import ContentsDrawer from '../components/ContentsDrawer';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import ContentsButton from '../components/buttons/ContentsButton';
 import BackButton from '../components/buttons/BackButton';
 import NextButton from '../components/buttons/NextButton';
 import PrevButton from '../components/buttons/PrevButton';
-import { darkTheme } from '../constants';
+import themeToStyles from '../utils/themeToStyles';
 
 function Reader(props) {
 	const [rendition, setRendition] = useState(null);
@@ -19,7 +19,7 @@ function Reader(props) {
 	useEffect(readFile, []);
 	// useEffect(() => {
 	// 	if (rendition) {
-	// 		rendition.themes.register({ theme: darkTheme });
+	// 		rendition.themes.register({ theme: themeToStyles(props.settings) });
 	// 		rendition.themes.select('theme');
 	// 	}
 	// }, [props.settings]);
@@ -35,10 +35,8 @@ function Reader(props) {
 	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {});
-		//
-		// 	rend.themes.register({ theme: darkTheme });
-		// 	rend.themes.select('theme');
-		//
+		// rend.themes.register({ theme: themeToStyles(props.settings) });
+		// rend.themes.select('theme');
 
 		rend.on('started', () => {
 			rend.display(props.locations[book.key()]);
