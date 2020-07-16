@@ -9,7 +9,14 @@ function PrevButton(props) {
 		props.rendition.prev();
 	}
 
-	return <PrevIcon onClick={goNext} fill={props.foreground} />;
+	return (
+		<PrevIcon
+			onClick={goNext}
+			fill={props.foreground}
+			stroke={props.foreground}
+			strokeWidth={12}
+		/>
+	);
 }
 
 function mapStateToProps(state) {

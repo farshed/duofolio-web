@@ -22,7 +22,6 @@ const ContentsIcon = styled(Contents)`
 	height: 1em;
 	width: 1em;
 	padding: 0.2em;
-	border-radius: 1em;
 	position: absolute;
 	top: 0.8em;
 	right: 0.8em;

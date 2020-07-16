@@ -9,7 +9,14 @@ function NextButton(props) {
 		props.rendition.next();
 	}
 
-	return <NextIcon onClick={goNext} fill={props.foreground} />;
+	return (
+		<NextIcon
+			onClick={goNext}
+			fill={props.foreground}
+			stroke={props.foreground}
+			strokeWidth={12}
+		/>
+	);
 }
 
 function mapStateToProps(state) {
