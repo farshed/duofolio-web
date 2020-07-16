@@ -4,7 +4,7 @@ import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import ContentsDrawer from '../components/ContentsDrawer';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 import ContentsButton from '../components/buttons/ContentsButton';
 import BackButton from '../components/buttons/BackButton';
 import NextButton from '../components/buttons/NextButton';
@@ -34,7 +34,10 @@ function Reader(props) {
 
 	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
-		let rend = book.renderTo(document.getElementById('reader'), {});
+		let rend = book.renderTo(document.getElementById('reader'), {
+			width: '100%',
+			height: '95%'
+		});
 		// rend.themes.register({ theme: themeToStyles(props.settings) });
 		// rend.themes.select('theme');
 
@@ -73,15 +76,15 @@ function Reader(props) {
 	}
 
 	return (
-		<Wrapper id="reader">
-			<ContentsButton isVisible={isContentDrawer} setVisible={setContentDrawer} />
+		<Wrapper id="reader" bg={props.settings.bg}>
+			{/* <Header /> */}
+			<Header isVisible={isContentDrawer} setVisible={setContentDrawer} />
 			<ContentsDrawer
 				isVisible={isContentDrawer}
 				setVisible={setContentDrawer}
 				contents={contents}
 				rendition={rendition}
 			/>
-			<BackButton />
 			<NextButton rendition={rendition} />
 			<PrevButton rendition={rendition} />
 		</Wrapper>
@@ -102,6 +105,7 @@ const Wrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	display: flex;
+	flex-direction: column;
 	margin: 0px;
-	background-color: ${(props) => props.theme.background};
+	background-color: ${(props) => props.bg};
 `;
