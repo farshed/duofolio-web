@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import ContentsItem from '../components/ContentsItem';
+import DrawerTab from './DrawerTab';
+import ContentsItem from './ContentsItem';
 
-const ContentsDrawer = (props) => {
+const Drawer = (props) => {
 	Modal.setAppElement('#modal');
+	const [tab, selectTab] = useState('toc');
+
+	function renderContent() {
+		switch (tab) {
+			case 'toc':
+				return (
+					props.contents &&
+					props.contents.map((item, i) => (
+						<ContentsItem {...item} rendition={props.rendition} key={i} />
+					))
+				);
+			case 'search':
+				return <div></div>;
+			case 'settings':
+				return <div></div>;
+			default:
+				return;
+		}
+	}
 
 	return (
 		<div onClick={(e) => e.stopPropagation()}>
@@ -18,16 +38,14 @@ const ContentsDrawer = (props) => {
 					e.stopPropagation();
 					props.setVisible(false);
 				}}>
-				{props.contents &&
-					props.contents.map((item, i) => (
-						<ContentsItem {...item} rendition={props.rendition} key={i} />
-					))}
+				<DrawerTab tab={tab} selectTab={selectTab} />
+				{renderContent()}
 			</Modal>
 		</div>
 	);
 };
 
-export default styled(ContentsDrawer).attrs({
+export default styled(Drawer).attrs({
 	overlayClassName: 'Overlay',
 	modalClassName: 'Modal'
 })`
@@ -40,8 +58,8 @@ export default styled(ContentsDrawer).attrs({
 		background-color: rgba(0, 0, 0, 0.2);
 	}
 	.Modal {
-		width: 25%;
-		min-width: 20em;
+		width: 90%;
+		max-width: 300px;
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
@@ -51,7 +69,8 @@ export default styled(ContentsDrawer).attrs({
 		flex-direction: column;
 		align-items: flex-start;
 		z-index: 12;
-		padding-top: 3em;
+		padding-top: 3.5em;
+		padding-bottom: 1em;
 		white-space: nowrap;
 		overflow-y: auto;
 		overflow-x: hidden;

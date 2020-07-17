@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Epub from 'epubjs/lib/index';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import ContentsDrawer from '../components/ContentsDrawer';
+import Drawer from '../components/Drawer';
 import Header from '../components/Header';
 import NextButton from '../components/buttons/NextButton';
 import PrevButton from '../components/buttons/PrevButton';
@@ -77,7 +77,7 @@ function Reader(props) {
 		<Wrapper bg={props.settings.bg}>
 			<Header isVisible={isContentDrawer} setVisible={setContentDrawer} />
 			<ReaderView id="reader" />
-			<ContentsDrawer
+			<Drawer
 				isVisible={isContentDrawer}
 				setVisible={setContentDrawer}
 				contents={contents}

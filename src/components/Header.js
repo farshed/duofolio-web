@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import BackButton from './buttons/BackButton';
 import ContentsButton from './buttons/ContentsButton';
-import SettingsButton from './buttons/SettingsButton';
 
 function Header(props) {
 	return (
 		<Wrapper bg={props.bg}>
 			<BackButton />
-			<SettingsButton />
 			<ContentsButton isVisible={props.isVisible} setVisible={props.setVisible} />
 		</Wrapper>
 	);

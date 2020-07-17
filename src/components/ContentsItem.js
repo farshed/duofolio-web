@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 	padding: 0.5em;
 	cursor: pointer;
 	&:hover {
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: rgba(0, 0, 0, 0.07);
 	}
 `;
 
