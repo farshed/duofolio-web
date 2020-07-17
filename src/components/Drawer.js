@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import DrawerTab from './DrawerTab';
 import ContentsItem from './ContentsItem';
+import Settings from './Settings';
 
 const Drawer = (props) => {
 	Modal.setAppElement('#modal');
@@ -20,7 +21,7 @@ const Drawer = (props) => {
 			case 'search':
 				return <div></div>;
 			case 'settings':
-				return <div></div>;
+				return <Settings />;
 			default:
 				return;
 		}

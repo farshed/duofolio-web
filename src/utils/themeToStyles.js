@@ -12,9 +12,6 @@ let styles = {
 	},
 	h1: {
 		color: '#ffffff'
-	},
-	a: {
-		color: 'inherit'
 	}
 };
 
