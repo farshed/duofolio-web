@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import DrawerTab from './DrawerTab';
 import ContentsItem from './ContentsItem';
+import Search from './Search';
 import Settings from './Settings';
 
-const Drawer = (props) => {
+function Drawer(props) {
 	Modal.setAppElement('#modal');
 	const [tab, selectTab] = useState('toc');
 
@@ -19,7 +20,7 @@ const Drawer = (props) => {
 					))
 				);
 			case 'search':
-				return <div></div>;
+				return <Search book={props.book} />;
 			case 'settings':
 				return <Settings />;
 			default:
@@ -44,7 +45,7 @@ const Drawer = (props) => {
 			</Modal>
 		</div>
 	);
-};
+}
 
 export default styled(Drawer).attrs({
 	overlayClassName: 'Overlay',

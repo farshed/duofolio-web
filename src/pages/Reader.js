@@ -10,6 +10,7 @@ import PrevButton from '../components/buttons/PrevButton';
 import themeToStyles from '../utils/themeToStyles';
 
 function Reader(props) {
+	const [bookState, setBookState] = useState(null);
 	const [rendition, setRendition] = useState(null);
 	const [isContentDrawer, setContentDrawer] = useState(false);
 	const [contents, setContents] = useState(null);
@@ -80,7 +81,7 @@ function Reader(props) {
 					? rend.manager.getContents()[0].window.getSelection().toString().trim()
 					: '';
 		});
-
+		setBookState(book);
 		setRendition(rend);
 	}
 
@@ -91,6 +92,7 @@ function Reader(props) {
 			<Drawer
 				isVisible={isContentDrawer}
 				setVisible={setContentDrawer}
+				book={bookState}
 				contents={contents}
 				rendition={rendition}
 			/>
@@ -120,8 +122,6 @@ const Wrapper = styled.div`
 `;
 
 const ReaderView = styled.div`
-	/* height: 100%;
-	width: 100%; */
 	display: flex;
 	flex: 1;
 	margin: 0px;
