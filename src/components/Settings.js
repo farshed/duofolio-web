@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import Colors from './Colors';
+import Fonts from './Fonts';
 
 function Settings(props) {
 	return (
 		<Wrapper>
-			<Colors />
+			<ItemWrapper>
+				<Colors />
+			</ItemWrapper>
+			<ItemWrapper>
+				<Fonts />
+			</ItemWrapper>
+			<ItemWrapper></ItemWrapper>
 		</Wrapper>
 	);
 }
@@ -17,7 +24,6 @@ const Wrapper = styled.div`
 `;
 
 const ItemWrapper = styled.div`
-	height: 33%;
-	max-height: 150px;
+	height: 10em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 `;

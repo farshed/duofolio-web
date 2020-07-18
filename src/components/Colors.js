@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-const colors = ['black', 'white', 'red', 'blue', 'green'];
+const colors = ['#fafafa', '#f8f1e3', '#bebebe', '#5a5a5c', '#121212'];
 
 function Colors(props) {
 	const [pickerVal, setPickerVal] = useState(props.background);
@@ -14,22 +14,12 @@ function Colors(props) {
 		setPickerVal(color);
 	}
 
-	function chooseColor(e) {
-		e.stopPropagation();
-		props.updateSettings({ bg: pickerVal });
-	}
-
-	// function updateColor(e) {
-	// 	e.stopPropagation();
-	//   props.updateSettings({ bg:  });
-	// }
-
 	return (
 		<Wrapper>
 			<Title>Background Color</Title>
 			<ColorsWrapper>
 				{colors.map((color, i) => (
-					<Color color={color} onClick={() => {}} key={i} />
+					<Color color={color} onClick={() => props.updateSettings({ bg: color })} key={i} />
 				))}
 			</ColorsWrapper>
 			<PickerWrapper>
@@ -39,7 +29,7 @@ function Colors(props) {
 					type="color"
 					value={pickerVal}
 					onChange={handleColor}
-					onBlur={chooseColor}
+					onBlur={() => props.updateSettings({ bg: pickerVal })}
 				/>
 			</PickerWrapper>
 		</Wrapper>
@@ -53,7 +43,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, actions)(Colors);
 
 const Wrapper = styled.div`
-	height: 10em;
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;

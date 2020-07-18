@@ -15,12 +15,12 @@ function Reader(props) {
 	const [contents, setContents] = useState(null);
 
 	useEffect(readFile, []);
-	// useEffect(() => {
-	// 	if (rendition) {
-	// 		rendition.themes.register({ theme: themeToStyles(props.settings) });
-	// 		rendition.themes.select('theme');
-	// 	}
-	// }, [props.settings]);
+	useEffect(() => {
+		if (rendition) {
+			rendition.themes.register({ theme: themeToStyles(props.settings) });
+			rendition.themes.select('theme');
+		}
+	}, [props.settings]);
 
 	function readFile() {
 		const file = new FileReader();
@@ -36,8 +36,8 @@ function Reader(props) {
 			width: '100%',
 			height: '97%'
 		});
-		// rend.themes.register({ theme: themeToStyles(props.settings) });
-		// rend.themes.select('theme');
+		rend.themes.register({ theme: themeToStyles(props.settings) });
+		rend.themes.select('theme');
 
 		rend.on('started', () => {
 			rend.display(props.locations[book.key()]);
