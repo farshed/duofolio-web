@@ -19,6 +19,7 @@ function Reader(props) {
 		if (rendition) {
 			rendition.themes.register({ theme: themeToStyles(props.settings) });
 			rendition.themes.select('theme');
+			rendition.getContents().forEach(getFonts);
 		}
 	}, [props.settings]);
 
@@ -30,12 +31,22 @@ function Reader(props) {
 		file.readAsArrayBuffer(props.currentBook);
 	}
 
+	function getFonts(content) {
+		let el = content.document.body.appendChild(content.document.createElement('link'));
+		el.setAttribute('rel', 'stylesheet');
+		el.setAttribute(
+			'href',
+			'https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=EB+Garamond:ital@0;1&family=Libre+Caslon+Text:ital@0;1&family=Lora:ital@0;1&family=Pacifico&family=Poppins&family=Raleway:ital@0;1&family=Roboto:ital@0;1&display=swap'
+		);
+	}
+
 	function bookInit(bookData) {
 		let book = Epub(bookData, { encoding: 'binary' });
 		let rend = book.renderTo(document.getElementById('reader'), {
 			width: '100%',
 			height: '97%'
 		});
+		rend.getContents().forEach(getFonts);
 		rend.themes.register({ theme: themeToStyles(props.settings) });
 		rend.themes.select('theme');
 

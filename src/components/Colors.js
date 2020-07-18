@@ -87,11 +87,12 @@ const PickerWrapper = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: space-between;
 `;
 
 const Picker = styled.input`
 	height: 1em;
 	width: 2em;
+	margin-right: 1em;
 	background-color: ${(props) => props.background};
 `;

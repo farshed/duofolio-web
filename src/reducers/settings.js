@@ -2,7 +2,8 @@ const InitialState = {
 	bg: '#fafafa',
 	fg: '#000000',
 	font: 'Default',
-	size: '100%'
+	size: '100%',
+	height: 'normal'
 };
 
 export default function (state = InitialState, action) {

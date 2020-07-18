@@ -19,8 +19,3 @@ p {
 svg {
 	user-select: none;
 }
-
-:root {
-	touch-action: pan-x pan-y;
-	height: 100%;
-}
