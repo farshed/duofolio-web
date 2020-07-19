@@ -37,7 +37,7 @@ function Reader(props) {
 		el.setAttribute('rel', 'stylesheet');
 		el.setAttribute(
 			'href',
-			'https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=EB+Garamond:ital@0;1&family=Libre+Caslon+Text:ital@0;1&family=Lora:ital@0;1&family=Pacifico&family=Poppins&family=Raleway:ital@0;1&family=Roboto:ital@0;1&display=swap'
+			'https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=EB+Garamond:ital@0;1&family=Libre+Caslon+Text:ital@0;1&family=Lora:ital@0;1&family=Pacifico&family=Poppins&family=Raleway:ital@0;1&family=Roboto:ital@0;1&family=Special+Elite&display=swap'
 		);
 	}
 
@@ -47,12 +47,12 @@ function Reader(props) {
 			width: '100%',
 			height: '97%'
 		});
-		rend.getContents().forEach(getFonts);
-		rend.themes.register({ theme: themeToStyles(props.settings) });
-		rend.themes.select('theme');
 
 		rend.on('started', () => {
 			rend.display(props.locations[book.key()]);
+			rend.themes.register({ theme: themeToStyles(props.settings) });
+			rend.themes.select('theme');
+			setTimeout(() => rend.getContents().forEach(getFonts), 200);
 		});
 
 		book.loaded.navigation.then((nav) => {

@@ -20,7 +20,7 @@ function Drawer(props) {
 					))
 				);
 			case 'search':
-				return <Search book={props.book} />;
+				return <Search book={props.book} rendition={props.rendition} />;
 			case 'settings':
 				return <Settings />;
 			default:

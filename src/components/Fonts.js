@@ -9,7 +9,8 @@ const fonts = {
 	Caslon: "'Libre Caslon Text', serif",
 	Lora: "'Lora', serif",
 	Raleway: "'Raleway', sans-serif",
-	Roboto: "'Roboto', sans-serif"
+	Roboto: "'Roboto', sans-serif",
+	'Special Elite': "'Special Elite'"
 };
 const sizes = ['12', '13', '14', '15', '16', '17', '18', '19', '20'];
 const heights = [1.4, 1.6, 1.8, 2.0, 2.2, 2.4];
