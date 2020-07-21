@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import { dict } from '../assets/dicts/fra-eng';
+import fra from '../assets/dicts/fra-en';
+import es from '../assets/dicts/es-en';
 
 function Dictionary(props) {
 	Modal.setAppElement('#modal');
@@ -25,7 +26,7 @@ function Dictionary(props) {
 
 	function searchDict(q) {
 		q = ` ${q.toLowerCase()} `;
-		return dict
+		return fra
 			.filter((word) => {
 				word = ` ${word[0].toLowerCase()} `;
 				return word.indexOf(q) > -1;
