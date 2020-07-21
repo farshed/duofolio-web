@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { ReactComponent as Contents } from '../../assets/contents.svg';
+import { ReactComponent as Contents } from '../../assets/icons/contents.svg';
 
 function ContentsButton(props) {
 	function onClick(e) {

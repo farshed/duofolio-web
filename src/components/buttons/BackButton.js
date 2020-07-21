@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { ReactComponent as Back } from '../../assets/back.svg';
+import { ReactComponent as Back } from '../../assets/icons/back.svg';
 
 function BackButton(props) {
 	function goBack(e) {

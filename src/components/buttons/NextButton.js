@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { ReactComponent as Next } from '../../assets/next.svg';
+import { ReactComponent as Next } from '../../assets/icons/next.svg';
 
 function NextButton(props) {
 	function goNext(e) {

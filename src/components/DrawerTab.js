@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Toc } from '../assets/contents.svg';
-import { ReactComponent as Search } from '../assets/search.svg';
-import { ReactComponent as Gear } from '../assets/gear.svg';
+import { ReactComponent as Toc } from '../assets/icons/contents.svg';
+import { ReactComponent as Search } from '../assets/icons/search.svg';
+import { ReactComponent as Gear } from '../assets/icons/gear.svg';
 
 function DrawerItem(props) {
 	return (

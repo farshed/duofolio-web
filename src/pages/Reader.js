@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Drawer from '../components/Drawer';
 import Header from '../components/Header';
+import Dictionary from '../components/Dictionary';
 import NextButton from '../components/buttons/NextButton';
 import PrevButton from '../components/buttons/PrevButton';
 import themeToStyles from '../utils/themeToStyles';
@@ -75,12 +76,12 @@ function Reader(props) {
 			props.addLocation({ key: book.key(), cfi: e.start.cfi });
 		});
 
-		rend.on('selected', () => {
-			let selection =
-				rend.manager && rend.manager.getContents().length > 0
-					? rend.manager.getContents()[0].window.getSelection().toString().trim()
-					: '';
-		});
+		// rend.on('selected', () => {
+		// 	let selection =
+		// 		rend.manager && rend.manager.getContents().length > 0
+		// 			? rend.manager.getContents()[0].window.getSelection().toString().trim()
+		// 			: '';
+		// });
 		setBookState(book);
 		setRendition(rend);
 	}
@@ -96,6 +97,7 @@ function Reader(props) {
 				contents={contents}
 				rendition={rendition}
 			/>
+			<Dictionary rendition={rendition} />
 			<NextButton rendition={rendition} />
 			<PrevButton rendition={rendition} />
 		</Wrapper>

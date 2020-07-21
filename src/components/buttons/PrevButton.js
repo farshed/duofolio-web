@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { ReactComponent as Prev } from '../../assets/prev.svg';
+import { ReactComponent as Prev } from '../../assets/icons/prev.svg';
 
 function PrevButton(props) {
 	function goNext(e) {
