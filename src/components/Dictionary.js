@@ -31,8 +31,7 @@ function Dictionary(props) {
 				word = ` ${word[0].toLowerCase()} `;
 				return word.indexOf(q) > -1;
 			})
-			.sort((a, b) => a[0].length - b[0].length)
-			.splice(0, 5);
+			.sort((a, b) => a[0].length - b[0].length);
 	}
 
 	return (
@@ -48,8 +47,8 @@ function Dictionary(props) {
 					setVisible(false);
 					setSelection('');
 				}}>
-				{searchDict(selection).map((res) => (
-					<Wrapper>
+				{searchDict(selection).map((res, i) => (
+					<Wrapper key={i}>
 						<Word>{res[0]}</Word>
 						<Role>{res[2]}</Role>
 						<Meaning>{res[1]}</Meaning>
@@ -73,19 +72,17 @@ export default styled(Dictionary).attrs({
 		background-color: rgba(0, 0, 0, 0.2);
 	}
 	.Modal {
-		min-width: 500px;
+		width: 100%;
+		height: 45%;
 		position: absolute;
-		top: 25%;
-		bottom: 25%;
-		right: 25%;
-		left: 25%;
+		bottom: 0px;
+		right: 0px;
+		left: 0px;
 		background-color: #fafafa;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		z-index: 12;
-		padding-top: 3.5em;
-		padding-bottom: 1em;
 		white-space: nowrap;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -98,29 +95,35 @@ export default styled(Dictionary).attrs({
 
 const Wrapper = styled.div`
 	width: 100%;
-	height: 3em;
+	min-height: 5em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin-left: 1em;
-	margin-right: 1em;
+	/* padding: 1em 1.5em 1em 1.5em; */
+	/* margin-right: 1.5em;
+	margin-left: 1.5em; */
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 `;
 
 const Word = styled.p`
 	font-family: Roboto;
+	font-weight: bold;
 	font-size: 1.5em;
 	color: #0f2439;
 `;
 
 const Meaning = styled.p`
 	font-family: Roboto;
-	font-size: 0.75em;
+	font-size: 1.2em;
 	color: #0f2439;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
 `;
 
 const Role = styled.p`
 	font-family: Roboto;
-	font-size: 0.5em;
+	font-style: italic;
+	font-size: 0.8em;
 	color: #0f2439;
 `;
