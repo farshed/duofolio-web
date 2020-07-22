@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Colors from './Colors';
 import Fonts from './Fonts';
+import MiscSettings from './MiscSettings';
 
-function Settings(props) {
+function Settings() {
 	return (
 		<Wrapper>
 			<ItemWrapper>
@@ -12,7 +13,9 @@ function Settings(props) {
 			<ItemWrapper>
 				<Fonts />
 			</ItemWrapper>
-			<ItemWrapper></ItemWrapper>
+			<ItemWrapper>
+				<MiscSettings />
+			</ItemWrapper>
 		</Wrapper>
 	);
 }

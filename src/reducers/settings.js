@@ -3,7 +3,8 @@ const InitialState = {
 	fg: '#000000',
 	font: 'Default',
 	size: '100%',
-	height: 'normal'
+	height: 'normal',
+	language: 'French'
 };
 
 export default function (state = InitialState, action) {

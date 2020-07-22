@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import fra from '../assets/dicts/fra-en';
 import es from '../assets/dicts/es-en';
@@ -26,12 +27,25 @@ function Dictionary(props) {
 
 	function searchDict(q) {
 		q = ` ${q.toLowerCase()} `;
-		return fra
+		let dict;
+		switch (props.language) {
+			case 'French':
+				dict = fra;
+				break;
+			case 'Spanish':
+				dict = es;
+				break;
+			default:
+				dict = es;
+				break;
+		}
+		return dict
 			.filter((word) => {
 				word = ` ${word[0].toLowerCase()} `;
 				return word.indexOf(q) > -1;
 			})
-			.sort((a, b) => a[0].length - b[0].length);
+			.sort((a, b) => a[0].length - b[0].length)
+			.splice(0, 5);
 	}
 
 	return (
@@ -59,7 +73,11 @@ function Dictionary(props) {
 	);
 }
 
-export default styled(Dictionary).attrs({
+function mapStateToProps(state) {
+	return { language: state.settings.language };
+}
+
+export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 	overlayClassName: 'Overlay',
 	modalClassName: 'Modal'
 })`
@@ -100,9 +118,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-	/* padding: 1em 1.5em 1em 1.5em; */
-	/* margin-right: 1.5em;
-	margin-left: 1.5em; */
+	padding: 1em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 `;
 
@@ -118,7 +134,6 @@ const Meaning = styled.p`
 	font-size: 1.2em;
 	color: #0f2439;
 	padding-top: 0.25em;
-	padding-bottom: 0.25em;
 `;
 
 const Role = styled.p`
