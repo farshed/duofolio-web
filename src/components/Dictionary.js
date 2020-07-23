@@ -47,6 +47,22 @@ function Dictionary(props) {
 			.sort((a, b) => a[0].length - b[0].length);
 	}
 
+	function renderResult() {
+		if (isVisible) {
+			let results = searchDict(selection);
+			if (results.length > 0) {
+				return results.map((res, i) => (
+					<Wrapper key={i}>
+						<Word>{res[0]}</Word>
+						<Role>{res[2]}</Role>
+						<Meaning>{res[1]}</Meaning>
+					</Wrapper>
+				));
+			}
+			return <Message>No results were found!</Message>;
+		}
+	}
+
 	return (
 		<div onClick={(e) => e.stopPropagation()}>
 			<Modal
@@ -60,13 +76,7 @@ function Dictionary(props) {
 					setVisible(false);
 					setSelection('');
 				}}>
-				{searchDict(selection).map((res, i) => (
-					<Wrapper key={i}>
-						<Word>{res[0]}</Word>
-						<Role>{res[2]}</Role>
-						<Meaning>{res[1]}</Meaning>
-					</Wrapper>
-				))}
+				{renderResult()}
 			</Modal>
 		</div>
 	);
@@ -109,8 +119,8 @@ export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 		text-overflow: ellipsis;
 		border-top-right-radius: 8px;
 		border-top-left-radius: 8px;
-		padding-top: 1em;
-		padding-bottom: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
 		&:focus {
 			outline: none;
 		}
@@ -132,7 +142,8 @@ const Word = styled.p`
 	font-family: Roboto;
 	font-weight: bold;
 	font-size: 1.2em;
-	color: #0f2439;
+	color: #23286b;
+	margin-bottom: 7px;
 `;
 
 const Meaning = styled.p`
@@ -147,4 +158,13 @@ const Role = styled.p`
 	font-style: italic;
 	font-size: 0.75em;
 	color: #0f2439;
+`;
+
+const Message = styled.p`
+	font-family: Roboto;
+	font-size: 1.25em;
+	color: #0f2439;
+	width: 100%;
+	text-align: center;
+	padding: 1em;
 `;

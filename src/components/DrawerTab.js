@@ -45,7 +45,7 @@ const ItemWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-bottom: ${(props) => (props.selected ? ' 2px solid #0f2439' : 'none')};
+	border-bottom: ${(props) => (props.selected ? ' 2px solid #23286b' : 'none')};
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.05);
 	}

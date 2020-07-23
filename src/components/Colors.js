@@ -19,7 +19,12 @@ function Colors(props) {
 			<Title>Background Color</Title>
 			<ColorsWrapper>
 				{colors.map((color, i) => (
-					<Color color={color} onClick={() => props.updateSettings({ bg: color })} key={i} />
+					<Color
+						selected={props.background === color}
+						color={color}
+						onClick={() => props.updateSettings({ bg: color })}
+						key={i}
+					/>
 				))}
 			</ColorsWrapper>
 			<PickerWrapper>
@@ -56,7 +61,7 @@ const Color = styled.div`
 	width: 2em;
 	border-radius: 2em;
 	background-color: ${(props) => props.color};
-	border: 1px solid rgba(0, 0, 0, 0.25);
+	border: ${(props) => (props.selected ? '2px solid #23286b' : '1px solid rgba(0, 0, 0, 0.25)')};
 `;
 
 const ColorsWrapper = styled.div`

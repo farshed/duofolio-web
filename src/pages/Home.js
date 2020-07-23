@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 const Monogram = styled.p`
 	font-size: 3.5em;
 	font-family: Pacifico;
-	color: #0f2439;
+	color: #23286b;
 	user-select: none;
 	position: absolute;
 	top: 0px;
@@ -48,6 +48,7 @@ const Description = styled.p`
 	padding: 1em;
 	padding-bottom: 2.5em;
 	text-align: center;
+	z-index: 3;
 `;
 
 const Link = styled.p`

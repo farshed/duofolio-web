@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	background-color: #0f2439;
+	background-color: #23286b;
 	border-radius: 0.35em;
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
