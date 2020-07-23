@@ -41,11 +41,10 @@ function Dictionary(props) {
 		}
 		return dict
 			.filter((word) => {
-				word = ` ${word[0].toLowerCase()} `;
+				word = ` ${word[0].split('[')[0].toLowerCase()} `;
 				return word.indexOf(q) > -1;
 			})
-			.sort((a, b) => a[0].length - b[0].length)
-			.splice(0, 5);
+			.sort((a, b) => a[0].length - b[0].length);
 	}
 
 	return (
@@ -88,14 +87,17 @@ export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.2);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
 	}
 	.Modal {
 		width: 100%;
+		max-width: 500px;
 		height: 45%;
 		position: absolute;
 		bottom: 0px;
-		right: 0px;
-		left: 0px;
 		background-color: #fafafa;
 		display: flex;
 		flex-direction: column;
@@ -105,6 +107,10 @@ export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 		overflow-y: auto;
 		overflow-x: hidden;
 		text-overflow: ellipsis;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+		padding-top: 1em;
+		padding-bottom: 1em;
 		&:focus {
 			outline: none;
 		}
@@ -113,7 +119,7 @@ export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 
 const Wrapper = styled.div`
 	width: 100%;
-	min-height: 5em;
+	min-height: 4em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -125,13 +131,13 @@ const Wrapper = styled.div`
 const Word = styled.p`
 	font-family: Roboto;
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: #0f2439;
 `;
 
 const Meaning = styled.p`
 	font-family: Roboto;
-	font-size: 1.2em;
+	font-size: 1em;
 	color: #0f2439;
 	padding-top: 0.25em;
 `;
@@ -139,6 +145,6 @@ const Meaning = styled.p`
 const Role = styled.p`
 	font-family: Roboto;
 	font-style: italic;
-	font-size: 0.8em;
+	font-size: 0.75em;
 	color: #0f2439;
 `;
