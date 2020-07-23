@@ -107,8 +107,8 @@ export default styled(connect(mapStateToProps, null)(Dictionary)).attrs({
 		overflow-y: auto;
 		overflow-x: hidden;
 		text-overflow: ellipsis;
-		border-top-right-radius: 5px;
-		border-top-left-radius: 5px;
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
 		padding-top: 1em;
 		padding-bottom: 1em;
 		&:focus {
@@ -139,7 +139,7 @@ const Meaning = styled.p`
 	font-family: Roboto;
 	font-size: 1em;
 	color: #0f2439;
-	padding-top: 0.25em;
+	margin-top: 0.5em;
 `;
 
 const Role = styled.p`
