@@ -5,14 +5,14 @@ import OpenButton from '../components/buttons/OpenButton';
 function Home() {
 	return (
 		<Wrapper>
-			<Monogram>linguify</Monogram>
+			<Monogram>Duofolio</Monogram>
 			<a
-				href="https://www.github.com/farshed/linguify"
+				href="https://www.github.com/farshed/duofolio"
 				target="_blank"
 				rel="noopener noreferrer">
 				<Link>Github</Link>
 			</a>
-			<Description>Linguify helps you read books in other languages</Description>
+			<Description>Duofolio helps you read books in other languages</Description>
 			<OpenButton />
 		</Wrapper>
 	);
