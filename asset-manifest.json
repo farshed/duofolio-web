@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/duofolio-web/static/css/main.cf35c34f.chunk.css",
-    "main.js": "/duofolio-web/static/js/main.b6e3ab29.chunk.js",
-    "main.js.map": "/duofolio-web/static/js/main.b6e3ab29.chunk.js.map",
+    "main.js": "/duofolio-web/static/js/main.2c716270.chunk.js",
+    "main.js.map": "/duofolio-web/static/js/main.2c716270.chunk.js.map",
     "runtime-main.js": "/duofolio-web/static/js/runtime-main.a607b0ad.js",
     "runtime-main.js.map": "/duofolio-web/static/js/runtime-main.a607b0ad.js.map",
     "static/js/2.81915389.chunk.js": "/duofolio-web/static/js/2.81915389.chunk.js",
     "static/js/2.81915389.chunk.js.map": "/duofolio-web/static/js/2.81915389.chunk.js.map",
     "index.html": "/duofolio-web/index.html",
-    "precache-manifest.2afe152246dd26faf7e1934e2fa83a87.js": "/duofolio-web/precache-manifest.2afe152246dd26faf7e1934e2fa83a87.js",
+    "precache-manifest.41aab198772b7d70b4dddde7d11f4cec.js": "/duofolio-web/precache-manifest.41aab198772b7d70b4dddde7d11f4cec.js",
     "service-worker.js": "/duofolio-web/service-worker.js",
     "static/css/main.cf35c34f.chunk.css.map": "/duofolio-web/static/css/main.cf35c34f.chunk.css.map",
     "static/js/2.81915389.chunk.js.LICENSE.txt": "/duofolio-web/static/js/2.81915389.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.a607b0ad.js",
     "static/js/2.81915389.chunk.js",
     "static/css/main.cf35c34f.chunk.css",
-    "static/js/main.b6e3ab29.chunk.js"
+    "static/js/main.2c716270.chunk.js"
   ]
 }

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e052447d569b420ab710a843f766c843",
+    "revision": "0718d36e94d14a810012b0ff237a3e34",
     "url": "/duofolio-web/index.html"
   },
   {
-    "revision": "ce5fcbdd9487be389c5a",
+    "revision": "737f972551bf7f80d057",
     "url": "/duofolio-web/static/css/main.cf35c34f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/duofolio-web/static/js/2.81915389.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ce5fcbdd9487be389c5a",
-    "url": "/duofolio-web/static/js/main.b6e3ab29.chunk.js"
+    "revision": "737f972551bf7f80d057",
+    "url": "/duofolio-web/static/js/main.2c716270.chunk.js"
   },
   {
     "revision": "664ac5330af6bd28dc08",
