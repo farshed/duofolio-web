@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import OpenButton from '../components/buttons/OpenButton';
 
 function Home() {
+	useEffect(() => {
+		const script = document.createElement('script');
+		script.src = 'https://unpkg.com/x-frame-bypass';
+		script.async = true;
+		document.body.appendChild(script);
+	}, []);
+
 	return (
 		<Wrapper>
 			<Monogram>Duofolio</Monogram>
@@ -34,7 +41,7 @@ const Wrapper = styled.div`
 const Monogram = styled.p`
 	font-size: 3.5em;
 	font-family: Pacifico;
-	color: #23286b;
+	color: #0f2439;
 	user-select: none;
 	position: absolute;
 	top: 0px;

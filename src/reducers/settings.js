@@ -4,7 +4,8 @@ const InitialState = {
 	font: 'Default',
 	size: '100%',
 	height: 'normal',
-	language: 'French'
+	sLang: '',
+	tLang: ''
 };
 
 export default function (state = InitialState, action) {
